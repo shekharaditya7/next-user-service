@@ -7,7 +7,7 @@ const jwtSecret =
 
 const env = process.env.NODE_ENV;
 const cors = Cors({
-  methods: ["POST", "GET", "HEAD"],
+  methods: ["POST", "GET", "HEAD", "OPTIONS"],
   origin:
     env === "production"
       ? "https://this-is-me-74cbf.web.app"
