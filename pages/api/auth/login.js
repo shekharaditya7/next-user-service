@@ -2,8 +2,10 @@ import Cors from "cors";
 import clientPromise from "../../../lib/mongodb";
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const jwtSecret =
-  "9c1fbba1a00fe74ba0578553c001c7c6f55ad731addd727c40e03a1fe4cc4d832aa527";
+const jwtSecret = process.env.JWT_SECRET;
+if (!jwtSecret) {
+  throw new Error('Invalid/Missing environment variable: "JWT_SECRET"');
+}
 
 const env = process.env.NODE_ENV;
 const cors = Cors({
